@@ -1,4 +1,4 @@
-import { GYMS, TRAINERS, ELITEFOUR } from "./data.js";
+import { GYMS, TRAINERS, ELITEFOUR, POKEMMOHUB_ITEMS, pokeMMOHubApi } from "./data.js";
 
 let regions = [];
 function add_sub_table(region, name) {
@@ -72,3 +72,9 @@ ELITEFOUR.forEach(team =>{
 		cell.appendChild(text);
 	});
 });
+
+
+document.querySelector("#amulet-coin-in").value = await pokeMMOHubApi.getPrice(POKEMMOHUB_ITEMS.amuletCoin);
+document.querySelector("#riches-75-in").value = await pokeMMOHubApi.getPrice(POKEMMOHUB_ITEMS.richesCharm75);
+document.querySelector("#riches-100-in").value = await pokeMMOHubApi.getPrice(POKEMMOHUB_ITEMS.richesCharm100);
+document.querySelector("#charm-form").dispatchEvent(new Event("input"));
