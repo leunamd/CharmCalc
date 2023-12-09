@@ -115,7 +115,6 @@ function createURL() {
 	idstring = idstring.replace("donator,","");
 	idstring = idstring.replace("donator","");
 
-	console.log(idstring);
 	let s = window.location.origin+window.location.pathname+"?vals="+idstring;
 
 	return s;
