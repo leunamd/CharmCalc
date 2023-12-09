@@ -95,4 +95,42 @@ const ELITEFOUR = [
 	new Team("eu", "Unova", 66000)
 ]
 
-export { GYMS, TRAINERS, ELITEFOUR };
+const POKEMMOHUB_ITEMS = {
+    amuletCoin: 5223,
+    richesCharm75: 1412,
+    richesCharm100: 1413
+}
+class Item {
+    constructor(id){
+        this.id = id;
+    }
+}
+
+class Api {
+    constructor(endpoint){
+        this.endpoint = endpoint;
+		this.items = [];
+    }
+
+    addItem(item){
+        this.items.push(item);
+    }
+
+    async getPrice(id){
+        const response = await fetch(this.endpoint + id);
+        const prices = await response.json();
+		return prices?.data[prices?.data?.length - 1]?.y || -1;
+    }
+}
+
+const amuletCoin = new Item(POKEMMOHUB_ITEMS.amuletCoin);
+const richesCharm75 = new Item(POKEMMOHUB_ITEMS.richesCharm75);
+const richesCharm100 = new Item(POKEMMOHUB_ITEMS.richesCharm100);
+
+
+const pokeMMOHubApi = new Api("https://pokemmoprices.com/api/v2/items/graph/min/");
+pokeMMOHubApi.addItem(amuletCoin);
+pokeMMOHubApi.addItem(richesCharm75);
+pokeMMOHubApi.addItem(richesCharm100);
+
+export { GYMS, TRAINERS, ELITEFOUR, POKEMMOHUB_ITEMS, pokeMMOHubApi };
