@@ -1,6 +1,8 @@
 # PokeMMO Riches Charm Calculator
 
-**ACCESS THE WEBSITE [HERE](https://c4vv.github.io/CharmCalc/)**
+**ACCESS THE WEBSITE [HERE](https://leunamd.github.io/CharmCalc/)**
+
+**ALL CREDITS GO TO THE ORIGINAL OWNER**
 
 A calculator to determine the value add of a Riches Charm or Amulet Coin based on various Gym Leaders, Trainers, and Elite Four.
 
